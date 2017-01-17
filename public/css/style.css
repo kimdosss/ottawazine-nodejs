@@ -108,17 +108,17 @@ body{
 .news-item {
 	width: 93%;
 	max-width: 400px;
-	margin: 5px auto 16px auto; 
+	margin: 5px auto 8px auto; 
 	background: #fff;
-	padding: 5px;
+	padding: 8px;
 	box-shadow: 1px 5px 7px #555;
 }
 
 .news-item-main{
 	width: 100%;
-	margin: 11px auto 8px auto; 
+	margin: 8px auto 8px auto; 
 	background: #fff;
-	padding: 5px;
+	padding: 8px;
 	box-shadow: 1px 5px 7px #555;	
 }
 
@@ -136,7 +136,7 @@ hr{
 }
 
 .newsimg{
-	background: url(../img/placeholder.jpg) no-repeat
+	background: url(../img/placeholder2.jpg) no-repeat center center
 }
 
 

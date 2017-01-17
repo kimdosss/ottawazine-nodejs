@@ -19,6 +19,21 @@ angular.module('wraf.controllers', [])
 			$rootScope.hasData = true;
 			$scope.page++; //把第2页的那6条新闻追加到页面上
 		});
+
+		/*var req = {
+			method: 'POST',
+			url: 'https://ottawazine.com/?json=submit_comment ',
+			headers: {
+				'Content-Type': 'application/x-www-form-urlencoded'
+			},
+			data: { id: 123123 }
+		}
+
+
+		$http(req).then(function(res){
+			console.log(res);
+		});*/
+
 	}
 	$scope.loadNews();
 
@@ -79,6 +94,7 @@ angular.module('wraf.controllers', [])
 .controller('tagCtrl', function($scope,postListRes,changeProtocol,$rootScope,$state) {
 
 	$scope.newsList = [];
+	$scope.sliderNews = [];
 
 	switch ($state.current.name) {
 	    case 'services':
@@ -146,6 +162,30 @@ angular.module('wraf.controllers', [])
 			$rootScope.$broadcast($rootScope.hasData);
 		});
 	}
+
+	//get top slider contents
+	if ($state.current.name == 'contact'|| $state.current.name == 'origin') {
+		postListRes.query({
+			theQquery: 390,
+			page: 1,
+			count: 20,
+			include: 'title,thumbnail'
+		}, function(data) {
+			$scope.sliderNews = changeProtocol.changeImgProtocol(data.posts);
+			$scope.sliderNewsQquery = 390;
+		});
+
+		$scope.sliderNext = function(){
+			jq('#homepage_carousel').carousel('next');		
+		}
+		$scope.sliderPrev = function(){
+			jq('#homepage_carousel').carousel('prev');		
+		}
+	}
+	
+
+
+
 })
 
 .controller('searchCtrl', function($scope,$http,searchPostListRes,changeProtocol,$rootScope) {

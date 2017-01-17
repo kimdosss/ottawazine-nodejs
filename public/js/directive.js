@@ -10,7 +10,7 @@ angular.module('wraf.directive', ['wraf.controllers'])
 				var body = document.body, html = document.documentElement;
 				var docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight);
 				windowBottom = windowHeight + window.pageYOffset;
-				if (windowBottom >= docHeight - 5) {
+				if (windowBottom >= docHeight - 0) {
 					scope.$apply(attrs.detectBottom);					
 				}
 			});
