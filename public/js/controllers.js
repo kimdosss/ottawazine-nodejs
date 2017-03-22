@@ -165,14 +165,21 @@ angular.module('wraf.controllers', [])
 
 	//get top slider contents
 	if ($state.current.name == 'contact'|| $state.current.name == 'origin') {
+		var theQquery;
+		if ($state.current.name == 'contact') {
+			theQquery = 401
+		}
+		if ($state.current.name == 'origin') {
+			theQquery = 400
+		}
 		postListRes.query({
-			theQquery: 390,
+			theQquery: theQquery,
 			page: 1,
 			count: 20,
 			include: 'title,thumbnail'
 		}, function(data) {
 			$scope.sliderNews = changeProtocol.changeImgProtocol(data.posts);
-			$scope.sliderNewsQquery = 390;
+			$scope.sliderNewsQquery = theQquery;
 		});
 
 		$scope.sliderNext = function(){
