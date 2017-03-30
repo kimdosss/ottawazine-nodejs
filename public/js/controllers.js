@@ -45,7 +45,15 @@ angular.module('wraf.controllers', [])
 		count: count,
 		include: 'title,thumbnail'
 	}, function(data) {
-		$scope.sliderNews = changeProtocol.changeImgProtocol(data.posts);
+		var temp=[];
+		for(var i=0;i<data.posts.length;i++){
+			//get latest posts				
+			if (i>=5) {
+				break;
+			}
+			temp.push(data.posts[i]);
+		}
+		$scope.sliderNews = changeProtocol.changeImgProtocol(temp);
 		$scope.sliderNewsQquery = 390;
 	});
 
@@ -178,7 +186,15 @@ angular.module('wraf.controllers', [])
 			count: 20,
 			include: 'title,thumbnail'
 		}, function(data) {
-			$scope.sliderNews = changeProtocol.changeImgProtocol(data.posts);
+			var temp=[];
+			for(var i=0;i<data.posts.length;i++){
+				//get latest posts				
+				if (i>=5) {
+					break;
+				}
+				temp.push(data.posts[i]);
+			}
+			$scope.sliderNews = changeProtocol.changeImgProtocol(temp);
 			$scope.sliderNewsQquery = theQquery;
 		});
 

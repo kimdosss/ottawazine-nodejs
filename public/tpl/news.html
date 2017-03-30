@@ -23,13 +23,13 @@
 		  <!-- Indicators -->
 			<ol class="carousel-indicators">
 
-				<li ng-repeat="(index, value) in sliderNews" data-target="#homepage_carousel" data-slide-to="{{index}}" ng-class="{'active':index == 0}"></li>
+				<li ng-repeat="(index, value) in sliderNews track by $index" data-target="#homepage_carousel" data-slide-to="{{index}}" ng-class="{'active':index == 0}"></li>
 
 		   	</ol>
 
 		  	<!-- Wrapper for slides -->
 		  	<div class="carousel-inner" role="listbox">
-			  	<div ng-repeat="(index, sliders) in sliderNews" class="item" ng-class="{'active':index == 0}">
+			  	<div ng-repeat="(index, sliders) in sliderNews track by $index" class="item" ng-class="{'active':index == 0}">
 			  		<img class="slider-img" ng-src="{{sliders.thumbnail_images.full.url}}">
 		        	<div class="carousel-caption">
 		          		<a href="#/news/{{sliders.id}}/{{sliderNewsQquery}}/{{page}}" ng-bind-html="sliders.title" class="postTitle"></a>
@@ -55,7 +55,7 @@
 		<div class="loader-top" ng-hide="doneLoading">
 			<h1 class="loader-text"><img src="img/loader.gif"></h1>
 		</div>
-	    <div class="news-item-main" ng-repeat="news in newsList">
+	    <div class="news-item-main" ng-repeat="news in newsList track by $index">
 	    	<div class="media">
 
 
